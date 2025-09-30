@@ -1,0 +1,30 @@
+name: Expression
+run-name: Aprendiendo uso de expresiones regulares en un workflow con GitHub Actions!
+on:
+  workflow_dispatch:
+    inputs:
+      edad:
+        description: 'Edad'
+        required: true
+        type: integer
+      nombre:
+        description: 'Nombre completo'
+        required: true
+        type: string
+        default: 'Joshua Duran'
+jobs:
+  is_older_than_18:
+    if: ${{input.edad >= 18}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutarse cuando edad sea mayor o igual a 18.
+      - run: echo ${{inputs.nombre}} es mayor de edad
+  is_not_older_than_18:
+    if: ${{input.edad < 18}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutarse cuando edad sea menor a 18.
+      - run: echo ${{inputs.nombre}} no es mayor de edad.
+
+  
+  
