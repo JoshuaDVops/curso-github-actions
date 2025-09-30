@@ -13,4 +13,4 @@ jobs:
       - name: Setup Golang
         uses: actions/setup-go@v6.0.0
       - name: Run main.go
-        run: go run main.go
+        run: go run ./main.go
