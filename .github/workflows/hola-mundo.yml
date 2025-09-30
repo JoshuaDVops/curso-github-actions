@@ -1,18 +1,18 @@
 name: Hola mundo
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 jobs:
-  build:
+  execute_main:
+    name: Ejecutar main.go e imprimir en consola su output.
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
       - uses: actions/checkout@v4
       - name: Setup Go environment
       - uses: actions/setup-go@v6.0.0
-        with:
-          go-version: '>=1.17.0'
-          go-version-file: .
-          cache-dependency-path: .
-      - run: go run .
+      - id: mostrar_output
+        run: go run .
