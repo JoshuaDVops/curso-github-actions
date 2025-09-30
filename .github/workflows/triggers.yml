@@ -1,0 +1,27 @@
+name: Uso de triggers
+run-name: Aprendiendo a usar triggers en GitHub Actions!
+on:
+  push:
+    branches: 
+      - "aprendiendo-github-actions"
+    paths:
+      - "**/**.go"
+  pull_request:
+    branches: 
+      - "main"
+    types: [opened, edited]
+    paths:
+      - "**/**.go"
+jobs:
+  execute_main:
+    name: Ejecutar main.go e imprimir en consola su output.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Golang
+        uses: actions/setup-go@v6.0.0
+        with:
+          go-version-file: './go.mod'
+      - name: Running main.go
+        run: go run ./main.go
