@@ -10,8 +10,8 @@ jobs:
     name: Ejecutar main.go e imprimir en consola su output.
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Golang
-        uses: actions/setup-go@v6.0.0
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6.0.0
         with:
           go-version-file: '.'
       - run: go version
