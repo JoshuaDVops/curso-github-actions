@@ -20,8 +20,8 @@ jobs:
       - name: Running main.go
         run: go run ./main.go
       - name: Set something
-        uses: mikefarah/yq@master
+        uses: mikefarah/yq@v4
         with:
-          cmd: yq -i '.foo.bar' = "cooler" './config.yml'
+          cmd: yq -i '.foo.bar' './config.yml'
       - name: Outputs new ./config.yml content
         run: cat ./config.yml
