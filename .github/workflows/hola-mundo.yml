@@ -23,5 +23,5 @@ jobs:
         uses: mikefarah/yq@master
         with:
           cmd: yq -i '.foo.bar' = "cooler" 'config.yml'
-      - name: Outputs new config.yml content
-        run: cat config.yml
+      - name: Outputs new curso-github-actions/config.yml content
+        run: cat curso-github-actions/config.yml
