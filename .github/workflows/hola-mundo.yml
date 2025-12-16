@@ -19,3 +19,9 @@ jobs:
           go-version-file: './go.mod'
       - name: Running main.go
         run: go run ./main.go
+      - name: Set something
+        uses: mikefarah/yq@v4
+        with:
+          cmd: yq -i '.foo.bar' './config.yml'
+      - name: Outputs new ./config.yml content
+        run: cat ./config.yml
