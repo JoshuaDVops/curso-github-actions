@@ -22,6 +22,6 @@ jobs:
       - name: Set something
         uses: mikefarah/yq@v4
         with:
-          cmd: yq -i '.foo.bar' './config.yml'
+          cmd: yq -i '.foo.bar = "cooler"' './config.yml'
       - name: Outputs new ./config.yml content
         run: cat ./config.yml
